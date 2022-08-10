@@ -14,7 +14,6 @@ public class EnemyDeathState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
-
         stateMachine.Animator.SetTrigger(DeadHash);
 
         stateMachine.Rigidbody.velocity = Vector2.zero;

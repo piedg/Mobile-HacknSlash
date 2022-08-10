@@ -32,16 +32,17 @@ public class Health : MonoBehaviour
 
     public void DealDamage(int damage)
     {
-        if (health == 0) { return; }
+
+        if (IsDead)
+        {
+            OnDie?.Invoke();
+            return;
+        }
+
         if (isInvulnerable) { return; }
 
         health = Mathf.Max(health - damage, 0);
 
         OnTakeDamage?.Invoke();
-
-        if (health == 0)
-        {
-            OnDie?.Invoke();
-        }
     }
 }

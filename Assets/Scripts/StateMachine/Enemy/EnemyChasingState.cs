@@ -35,7 +35,12 @@ public class EnemyChasingState : EnemyBaseState
 
     private void MoveToPlayer(float deltaTime)
     {
-        if (stateMachine.Player.GetComponent<Health>().IsDead) { return; }
+        if (stateMachine.Player.GetComponent<Health>().IsDead)
+        {
+            stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
+            stateMachine.Rigidbody.velocity = Vector2.zero;
+            return;
+        }
 
         Vector2 direction = stateMachine.Player.transform.position - stateMachine.transform.position;
         direction.Normalize();

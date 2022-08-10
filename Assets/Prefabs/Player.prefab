@@ -86,10 +86,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4625569651388304976}
   - component: {fileID: 4625569651388304983}
-  - component: {fileID: 4625569651388304977}
   - component: {fileID: 4625569651388304978}
   - component: {fileID: 4625569651388304979}
   - component: {fileID: 4625569651388304988}
+  - component: {fileID: 4625569651388304977}
   - component: {fileID: 4625569651388304989}
   - component: {fileID: 1855957491}
   m_Layer: 7
@@ -168,28 +168,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4625569651388304977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4625569651388304982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbccfd8efd55145f4aba6704320b4df8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Rigidbody: {fileID: 4625569651388304979}
-  Animator: {fileID: 4625569651388304988}
-  Inputs: {fileID: 4625569651388304989}
-  Health: {fileID: 1855957491}
-  MovementSpeed: 5
-  AttackDamage: 50
-  AttackRate: 2
-  AttackRange: 1.5
-  AttackPoint: {fileID: 4625569651648202800}
-  HealthBar: {fileID: 8662399343710186722}
 --- !u!70 &4625569651388304978
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -247,6 +225,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4625569651388304977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625569651388304982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbccfd8efd55145f4aba6704320b4df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rigidbody2d: {fileID: 4625569651388304979}
+  Animator: {fileID: 4625569651388304988}
+  Inputs: {fileID: 4625569651388304989}
+  Health: {fileID: 1855957491}
+  MovementSpeed: 5
+  AttackDamage: 50
+  AttackRate: 2
+  AttackRange: 1.5
+  AttackPoint: {fileID: 4625569651648202800}
+  HealthBar: {fileID: 8662399343710186722}
 --- !u!114 &4625569651388304989
 MonoBehaviour:
   m_ObjectHideFlags: 0

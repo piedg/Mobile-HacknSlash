@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] Rigidbody2D Rigidbody;
+    [SerializeField] Rigidbody2D Rigidbody2d;
     [SerializeField] Animator Animator;
     [SerializeField] InputManager Inputs;
     [SerializeField] Health Health;
@@ -26,13 +26,15 @@ public class Player : MonoBehaviour
     private readonly int AttackHash = Animator.StringToHash("Attack");
     private readonly int DeadHash = Animator.StringToHash("Dead");
 
+    private float AnimationDumpTime = 0.1f;
+
     private Vector2 direction;
 
     void Update()
     {
         if(Health.IsDead)
         {
-            Rigidbody.velocity = Vector2.zero;
+            Rigidbody2d.velocity = Vector2.zero;
             Animator.SetBool(DeadHash, true);
             return;
         }
@@ -40,7 +42,7 @@ public class Player : MonoBehaviour
         direction = Inputs.MovementValue;
         direction.Normalize();
 
-        UpdateLocomotion(direction);
+        UpdateLocomotion(direction, Time.deltaTime);
         FlipSprite(direction.x);
 
         if(Inputs.IsAttacking)
@@ -57,29 +59,31 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Rigidbody.velocity = direction * MovementSpeed;
+        Rigidbody2d.velocity = direction * MovementSpeed;
     }
 
     void StartAttacking()
     {
-        Rigidbody.velocity = Vector2.zero;
-        Animator.SetTrigger(AttackHash);
+        Rigidbody2d.constraints = RigidbodyConstraints2D.FreezePosition;
+        Rigidbody2d.velocity = Vector2.zero;
+        Animator.CrossFade(AttackHash, AnimationDumpTime);
     }
 
     void StopAttacking()
     {
-        Animator.ResetTrigger(AttackHash);
+        Rigidbody2d.constraints = RigidbodyConstraints2D.None;
+        Rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
-    void UpdateLocomotion(Vector2 direction)
+    void UpdateLocomotion(Vector2 direction, float deltaTime)
     {
         if(direction == Vector2.zero)
         {
-            Animator.SetFloat(LocomotionSpeedHash, 0f);
+            Animator.SetFloat(LocomotionSpeedHash, 0f, AnimationDumpTime, deltaTime);
         }
         else
         {
-            Animator.SetFloat(LocomotionSpeedHash, 1f);
+            Animator.SetFloat(LocomotionSpeedHash, 1f, AnimationDumpTime, deltaTime);
         }
     }
 
@@ -102,7 +106,6 @@ public class Player : MonoBehaviour
         HealthBar.fillAmount = (float)Health.GetHealth() / (float)Health.maxHealth;
     }
 
- 
     // Events
     void Attack()
     {

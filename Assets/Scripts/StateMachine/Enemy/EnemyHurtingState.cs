@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyHurtingState : EnemyBaseState
 {
     private readonly int ImpactHash = Animator.StringToHash("Hurting");
-    private const float CrossFadeduration = 0.1f;
 
     private float duration = 0.25f;
 
