@@ -303,6 +303,8 @@ MonoBehaviour:
   <AttackPoint>k__BackingField: {fileID: 4625569651648202800}
   <AttackRange>k__BackingField: 1.5
   <AttackDamage>k__BackingField: 50
+  <SkillPoint>k__BackingField: {fileID: 231542155}
+  <FireIncendiaryPrefab>k__BackingField: {fileID: 7791099561216970531, guid: f1fb785acdc154ac98ccc43421e1250d, type: 3}
 --- !u!1 &4625569651648202807
 GameObject:
   m_ObjectHideFlags: 0

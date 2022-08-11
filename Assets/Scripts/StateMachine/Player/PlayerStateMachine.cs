@@ -5,18 +5,21 @@ using UnityEngine.UI;
 
 public class PlayerStateMachine : StateMachine
 {
-   [field: SerializeField, Header("Controllers")] public InputManager InputManager { get; private set; }
-   [field: SerializeField] public Health Health { get; private set; }
-   [field: SerializeField] public Rigidbody2D Rigidbody2d { get; private set; }
-   [field: SerializeField] public Animator Animator { get; private set; }
+    [field: SerializeField, Header("Controllers")] public InputManager InputManager { get; private set; }
+    [field: SerializeField] public Health Health { get; private set; }
+    [field: SerializeField] public Rigidbody2D Rigidbody2d { get; private set; }
+    [field: SerializeField] public Animator Animator { get; private set; }
 
-   [field: SerializeField, Header("Movement Settings")] public float MovementSpeed { get; private set; }
+    [field: SerializeField, Header("Movement Settings")] public float MovementSpeed { get; private set; }
 
-   [field: SerializeField, Header("Health Settings")] public Image HealthBar { get; private set; }
+    [field: SerializeField, Header("Health Settings")] public Image HealthBar { get; private set; }
 
     [field: SerializeField, Header("Attack Settings")] public Transform AttackPoint { get; private set; }
     [field: SerializeField] public float AttackRange { get; private set; }
     [field: SerializeField] public int AttackDamage { get; private set; }
+
+    [field: SerializeField, Header("Skills Settings")] public Transform SkillPoint { get; private set; }
+    [field: SerializeField] public GameObject FireIncendiaryPrefab { get; private set; }
 
     private void Start()
     {
@@ -66,5 +69,15 @@ public class PlayerStateMachine : StateMachine
         if (AttackPoint == null) return;
 
         Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
+    }
+
+    public GameObject SpawnGameObject(GameObject prefab, Transform spawnPoint)
+    {
+        return Instantiate(prefab, spawnPoint);
+    }
+
+    public void DestroyGameObject(GameObject instance, float delay)
+    {
+        Destroy(instance, delay);
     }
 }

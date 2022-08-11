@@ -8,9 +8,7 @@ public class PlayerAttackingState : PlayerBaseState
 
     Vector2 direction;
 
-    public PlayerAttackingState(PlayerStateMachine stateMachine, Vector2 _direction) : base(stateMachine) {
-        direction = _direction;
-    }
+    public PlayerAttackingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter()
     {
@@ -36,6 +34,7 @@ public class PlayerAttackingState : PlayerBaseState
         {
             stateMachine.SwitchState(new PlayerMovementState(stateMachine));
         }
+
         previousFrameTime = normalizedTime;
     }
 }
