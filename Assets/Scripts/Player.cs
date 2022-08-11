@@ -20,10 +20,15 @@ public class Player : MonoBehaviour
     [SerializeField] float AttackRange;
     [SerializeField] Transform AttackPoint;
 
+    [Header("Skills Settings")]
+    [SerializeField] GameObject FireIncendiaryPrefab;
+    [SerializeField] Transform SkillPoint;
+
     [SerializeField] Image HealthBar;
 
     private readonly int LocomotionSpeedHash = Animator.StringToHash("LocomotionSpeed");
     private readonly int AttackHash = Animator.StringToHash("Attack");
+    private readonly int Skill1Hash = Animator.StringToHash("Skill1");
     private readonly int DeadHash = Animator.StringToHash("Dead");
 
     private float AnimationDumpTime = 0.1f;
@@ -54,6 +59,15 @@ public class Player : MonoBehaviour
             StopAttacking();
         }
 
+        if(Inputs.IsSkill1)
+        {
+            CastSkill1();
+            return;
+        } else
+        {
+            StopCastSkill1();
+        }
+
         HandleHealthBar();
     }
 
@@ -70,6 +84,21 @@ public class Player : MonoBehaviour
     }
 
     void StopAttacking()
+    {
+        Rigidbody2d.constraints = RigidbodyConstraints2D.None;
+        Rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    void CastSkill1()
+    {
+        Rigidbody2d.constraints = RigidbodyConstraints2D.FreezePosition;
+        Rigidbody2d.velocity = Vector2.zero;
+
+        GameObject _skillInstance = Instantiate(FireIncendiaryPrefab, SkillPoint.transform);
+        Destroy(_skillInstance, 1.3f);
+    }
+
+    void StopCastSkill1()
     {
         Rigidbody2d.constraints = RigidbodyConstraints2D.None;
         Rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;

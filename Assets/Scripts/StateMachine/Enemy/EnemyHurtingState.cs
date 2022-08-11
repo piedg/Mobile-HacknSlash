@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHurtingState : EnemyBaseState
 {
-    private readonly int ImpactHash = Animator.StringToHash("Hurting");
+    private readonly int ImpactHash = Animator.StringToHash("Hurt");
 
     private float duration = 0.25f;
 
@@ -12,7 +12,7 @@ public class EnemyHurtingState : EnemyBaseState
 
     public override void Enter()
     {
-        stateMachine.Animator.SetTrigger(ImpactHash);
+        stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, 0.1f);
     }
 
     public override void Tick(float deltaTime)
@@ -23,7 +23,6 @@ public class EnemyHurtingState : EnemyBaseState
 
         if (duration <= 0)
         {
-            stateMachine.Animator.ResetTrigger(ImpactHash);
             stateMachine.SwitchState(new EnemyChasingState(stateMachine));
         }
     }

@@ -162,7 +162,7 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 1503687048731904532}
   <Rigidbody>k__BackingField: {fileID: 1503687048731904534}
   <Health>k__BackingField: {fileID: 5374579817561021344}
-  <MovementSpeed>k__BackingField: 4
+  <MovementSpeed>k__BackingField: 2
   <PlayerChasingRange>k__BackingField: 100
   <AttackRange>k__BackingField: 1
   <AttackDamage>k__BackingField: 1

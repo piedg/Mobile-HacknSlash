@@ -10,4 +10,10 @@ public abstract class PlayerBaseState : State
     {
         this.stateMachine = stateMachine;
     }
+
+    protected void Move(Vector2 direction, float speed)
+    {
+        stateMachine.Rigidbody2d.velocity = direction * speed;
+    }
+
 }

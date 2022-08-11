@@ -19,7 +19,13 @@ public class EnemyChasingState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
-        if (IsInAttackRange())
+        if (!IsInChaseRange())
+        {
+            stateMachine.Rigidbody.velocity = Vector2.zero;
+            stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
+            return;
+        }
+            if (IsInAttackRange())
         {
             stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
             return;
@@ -35,13 +41,6 @@ public class EnemyChasingState : EnemyBaseState
 
     private void MoveToPlayer(float deltaTime)
     {
-        if (stateMachine.Player.GetComponent<Health>().IsDead)
-        {
-            stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
-            stateMachine.Rigidbody.velocity = Vector2.zero;
-            return;
-        }
-
         Vector2 direction = stateMachine.Player.transform.position - stateMachine.transform.position;
         direction.Normalize();
 
