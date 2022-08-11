@@ -14,9 +14,9 @@ public class PlayerStateMachine : StateMachine
 
    [field: SerializeField, Header("Health Settings")] public Image HealthBar { get; private set; }
 
-    [field: SerializeField, Header("Attack Settings")] public int AttackDamage { get; private set; }
-    [field: SerializeField] public Transform AttackPoint { get; private set; }
+    [field: SerializeField, Header("Attack Settings")] public Transform AttackPoint { get; private set; }
     [field: SerializeField] public float AttackRange { get; private set; }
+    [field: SerializeField] public int AttackDamage { get; private set; }
 
     private void Start()
     {
@@ -38,16 +38,15 @@ public class PlayerStateMachine : StateMachine
     private void HandleTakeDamage()
     {
         HandleHealthBar();
-        // SwitchState(new PlayerImpactState(this));
+        // SwitchState(new PlayerImpactState(this)); Non necessario
     }
 
     private void HandleDie()
     {
-       // SwitchState(new PlayerDeadState(this));
+       SwitchState(new PlayerDeadState(this));
     }
 
     void HandleHealthBar() => HealthBar.fillAmount = (float)Health.GetHealth() / (float)Health.maxHealth;
-
 
 
     // Animation Events

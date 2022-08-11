@@ -9,7 +9,9 @@ public class EnemyDeathState : EnemyBaseState
     public EnemyDeathState(EnemyStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter() {
-        stateMachine.Animator.SetBool(DeadHash, true);
+        // stateMachine.Animator.SetBool(DeadHash, true);
+        stateMachine.GetComponent<CapsuleCollider2D>().enabled = false;
+        stateMachine.Animator.CrossFadeInFixedTime(DeadHash, 0.1f);
         GameObject.Destroy(stateMachine.gameObject, 2f);
     }
 

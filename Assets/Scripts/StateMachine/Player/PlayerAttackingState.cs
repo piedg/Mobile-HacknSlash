@@ -21,6 +21,9 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
+        direction = stateMachine.InputManager.MovementValue;
+
+        FlipSprite(direction.x);
         Move(direction, 0f);
 
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");

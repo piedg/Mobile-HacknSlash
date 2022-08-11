@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovementState : PlayerBaseState
 {
-
     private readonly int LocomotionBlendTreeHash = Animator.StringToHash("Locomotion");
     private readonly int SpeedHash = Animator.StringToHash("Speed");
 
@@ -48,20 +47,6 @@ public class PlayerMovementState : PlayerBaseState
         else
         {
             stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
-        }
-    }
-
-    void FlipSprite(float directionX)
-    {
-        if (directionX > 0)
-        {
-            stateMachine.HealthBar.gameObject.transform.localScale = Vector2.one;
-            stateMachine.transform.localScale = Vector2.one;
-        }
-        else if (directionX < 0)
-        {
-            stateMachine.HealthBar.gameObject.transform.localScale = new Vector3(-1, 1, 1);
-            stateMachine.transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 }

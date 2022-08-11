@@ -300,9 +300,9 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 4625569651388304988}
   <MovementSpeed>k__BackingField: 5
   <HealthBar>k__BackingField: {fileID: 8662399343710186722}
-  <AttackDamage>k__BackingField: 50
   <AttackPoint>k__BackingField: {fileID: 4625569651648202800}
   <AttackRange>k__BackingField: 1.5
+  <AttackDamage>k__BackingField: 50
 --- !u!1 &4625569651648202807
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -0.75}
+  m_AnchoredPosition: {x: -0.02, y: -0.75}
   m_SizeDelta: {x: 1, y: 0.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1626037389322939416
