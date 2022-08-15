@@ -1030,10 +1030,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 72698600, guid: bb78be13e5ac54f21bfde770687b7f48, type: 3}
-      propertyPath: <SpellCastTime>k__BackingField
-      value: 1.3
-      objectReference: {fileID: 0}
     - target: {fileID: 4625569651388304976, guid: bb78be13e5ac54f21bfde770687b7f48, type: 3}
       propertyPath: m_RootOrder
       value: 1
