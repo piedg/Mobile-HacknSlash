@@ -20,6 +20,8 @@ public class PlayerStateMachine : StateMachine
 
     [field: SerializeField, Header("Skills Settings")] public Transform SkillPoint { get; private set; }
     [field: SerializeField] public GameObject FireIncendiaryPrefab { get; private set; }
+    [field: SerializeField] public float SpellCastTime { get; private set; }
+
 
     private void Start()
     {
@@ -50,7 +52,6 @@ public class PlayerStateMachine : StateMachine
     }
 
     void HandleHealthBar() => HealthBar.fillAmount = (float)Health.GetHealth() / (float)Health.maxHealth;
-
 
     // Animation Events
 

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 231542154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.98, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -305,6 +305,7 @@ MonoBehaviour:
   <AttackDamage>k__BackingField: 50
   <SkillPoint>k__BackingField: {fileID: 231542155}
   <FireIncendiaryPrefab>k__BackingField: {fileID: 7791099561216970531, guid: f1fb785acdc154ac98ccc43421e1250d, type: 3}
+  <SpellCastTime>k__BackingField: 1.3
 --- !u!1 &4625569651648202807
 GameObject:
   m_ObjectHideFlags: 0

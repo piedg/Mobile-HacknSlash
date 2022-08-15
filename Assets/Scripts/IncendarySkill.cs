@@ -10,12 +10,13 @@ public class IncendarySkill : MonoBehaviour
 
     void Skill_Incendary()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, Range, LayerMask.GetMask("Enemy"));
+        BoxCollider.enabled = true;
+        //Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, Range, LayerMask.GetMask("Enemy"));
 
-        foreach (Collider2D enemy in hitEnemies)
+       /* foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Health>().DealDamage(Damage);
-        }
+        } */
     }
 
     private void OnDrawGizmosSelected()
@@ -23,5 +24,10 @@ public class IncendarySkill : MonoBehaviour
         if (transform.position == null) return;
 
         Gizmos.DrawWireSphere(transform.position, Range);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        collision.GetComponent<Health>().DealDamage(Damage);
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7791099561216970534}
   - component: {fileID: 7791099561216970535}
   - component: {fileID: 2263692312261777844}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: FireIncendary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7791099561216970531}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.87, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -117,21 +117,21 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0033111572, y: -0.02648887}
+  m_Offset: {x: 1.8484614, y: -0.027657986}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.45}
+    pivot: {x: 0, y: 0.5}
+    oldSize: {x: 3.65, y: 0.95}
     newSize: {x: 0.35, y: 0.35}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7682323, y: 0.45041084}
+  m_Size: {x: 3.607534, y: 1.2333441}
   m_EdgeRadius: 0
 --- !u!114 &2263692312261777844
 MonoBehaviour:
@@ -147,4 +147,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Range: 1.5
   BoxCollider: {fileID: 7791099561216970535}
-  Damage: 200
+  Damage: 300
