@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FireMeteor : MonoBehaviour
 {
-    [SerializeField] float Range;
     [SerializeField] CircleCollider2D CircleCollider;
     [SerializeField] int Damage;
 
@@ -13,21 +12,19 @@ public class FireMeteor : MonoBehaviour
         transform.Translate(Vector2.down * 1f * Time.deltaTime);
     }
 
-    void Skill_FireMeteor()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        //CircleCollider.enabled = true;
-        //moodificare l'evento nell'animazione
+        other.GetComponent<Health>().DealDamage(Damage);
     }
 
-    private void OnDrawGizmosSelected()
+    // Animations Events
+    void Skill_Hit()
     {
-        if (transform.position == null) return;
-
-        Gizmos.DrawWireSphere(transform.position, Range);
+        CircleCollider.enabled = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void Skill_End()
     {
-        collision.GetComponent<Health>().DealDamage(Damage);
+        Destroy(gameObject);
     }
 }

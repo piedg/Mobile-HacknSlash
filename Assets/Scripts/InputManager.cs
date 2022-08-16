@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
     public Vector2 MovementValue { get; private set; }
     public bool IsAttacking { get; private set; }
     public bool IsSkill1 { get; private set; }
-
+    public bool IsSkill2 { get; private set; }
 
     private Controls controls;
 
@@ -52,6 +52,18 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
         else if (context.canceled)
         {
             IsSkill1 = false;
+        }
+    }
+
+    public void OnSkill2(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            IsSkill2 = true;
+        }
+        else if (context.canceled)
+        {
+            IsSkill2 = false;
         }
     }
 }

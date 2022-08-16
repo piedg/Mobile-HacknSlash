@@ -27,9 +27,15 @@ public class PlayerMovementState : PlayerBaseState
         {
             stateMachine.SwitchState(new PlayerAttackingState(stateMachine, 0));
             return;
-        } else if(stateMachine.InputManager.IsSkill1)
+        }
+            else if(stateMachine.InputManager.IsSkill1)
         { 
             stateMachine.SwitchState(new PlayerCastSkillState(stateMachine, 0));
+            return;
+        }
+            else if (stateMachine.InputManager.IsSkill2)
+        {
+            stateMachine.SwitchState(new PlayerCastSkillState(stateMachine, 1));
             return;
         }
 
