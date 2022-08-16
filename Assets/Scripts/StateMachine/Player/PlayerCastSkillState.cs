@@ -5,15 +5,20 @@ using UnityEngine;
 public class PlayerCastSkillState : PlayerBaseState
 {
     float remainingCastTime;
+    Skill currentSkill;
 
-    public PlayerCastSkillState(PlayerStateMachine stateMachine) : base(stateMachine) { }
+    public PlayerCastSkillState(PlayerStateMachine stateMachine, int skillIndex) : base(stateMachine)
+    {
+        currentSkill = stateMachine.Skills[skillIndex];
+    }
 
     public override void Enter()
     {
-        remainingCastTime = stateMachine.SpellCastTime;
+        remainingCastTime = currentSkill.SpellCastTime;
+        stateMachine.Animator.CrossFadeInFixedTime(currentSkill.AnimationName, currentSkill.TransitionDuration);
 
-        GameObject _skillInstance = stateMachine.SpawnGameObject(stateMachine.FireIncendiaryPrefab, stateMachine.SkillPoint.transform);
-        stateMachine.DestroyGameObject(_skillInstance, 1.3f);
+        GameObject _skillInstance = stateMachine.SpawnGameObject(currentSkill.Prefab, stateMachine.SkillPoint.transform);
+        stateMachine.DestroyGameObject(_skillInstance, currentSkill.SpellCastTime);
     }
 
     public override void Exit() { }

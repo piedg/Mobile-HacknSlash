@@ -10,8 +10,6 @@ public class PlayerMovementState : PlayerBaseState
     private const float AnimatorDumpTime = 0.1f;
     private const float CrossFadeDuration = 0.1f;
 
-    float FireSpellStart;
-
     Vector2 direction;
 
     public PlayerMovementState(PlayerStateMachine stateMachine) : base(stateMachine) { }
@@ -31,7 +29,7 @@ public class PlayerMovementState : PlayerBaseState
             return;
         } else if(stateMachine.InputManager.IsSkill1)
         { 
-            stateMachine.SwitchState(new PlayerCastSkillState(stateMachine));
+            stateMachine.SwitchState(new PlayerCastSkillState(stateMachine, 0));
             return;
         }
 
