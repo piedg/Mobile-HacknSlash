@@ -322,6 +322,7 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <Prefab>k__BackingField: {fileID: 8119918092673389170, guid: 8932bd148505b43618c5489c60f68c29, type: 3}
     <SpellCastTime>k__BackingField: 1
+  <KillCount>k__BackingField: 0
 --- !u!1 &4625569651648202807
 GameObject:
   m_ObjectHideFlags: 0

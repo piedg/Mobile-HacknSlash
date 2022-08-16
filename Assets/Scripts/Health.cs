@@ -40,6 +40,11 @@ public class Health : MonoBehaviour
 
         if (IsDead)
         {
+            if(CompareTag("Enemy"))
+            {
+                GameManager.KillCount++;
+            }
+
             OnDie?.Invoke();
             return;
         }
