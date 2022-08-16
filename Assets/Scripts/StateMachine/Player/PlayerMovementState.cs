@@ -27,7 +27,7 @@ public class PlayerMovementState : PlayerBaseState
     {
         if (stateMachine.InputManager.IsAttacking)
         {
-            stateMachine.SwitchState(new PlayerAttackingState(stateMachine));
+            stateMachine.SwitchState(new PlayerAttackingState(stateMachine, 0));
             return;
         } else if(stateMachine.InputManager.IsSkill1)
         { 

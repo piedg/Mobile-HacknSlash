@@ -303,6 +303,15 @@ MonoBehaviour:
   <AttackPoint>k__BackingField: {fileID: 4625569651648202800}
   <AttackRange>k__BackingField: 1.5
   <AttackDamage>k__BackingField: 50
+  <Attacks>k__BackingField:
+  - <AnimationName>k__BackingField: Attack
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: 1
+    <ComboAttackTime>k__BackingField: 0.6
+  - <AnimationName>k__BackingField: Attack2
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: -1
+    <ComboAttackTime>k__BackingField: 0
   <SkillPoint>k__BackingField: {fileID: 231542155}
   <FireIncendiaryPrefab>k__BackingField: {fileID: 7791099561216970531, guid: f1fb785acdc154ac98ccc43421e1250d, type: 3}
   <SpellCastTime>k__BackingField: 1.3

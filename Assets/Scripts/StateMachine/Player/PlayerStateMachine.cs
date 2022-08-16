@@ -17,6 +17,8 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField, Header("Attack Settings")] public Transform AttackPoint { get; private set; }
     [field: SerializeField] public float AttackRange { get; private set; }
     [field: SerializeField] public int AttackDamage { get; private set; }
+    [field: SerializeField] public Attack[] Attacks { get; private set; }
+
 
     [field: SerializeField, Header("Skills Settings")] public Transform SkillPoint { get; private set; }
     [field: SerializeField] public GameObject FireIncendiaryPrefab { get; private set; }
@@ -43,7 +45,7 @@ public class PlayerStateMachine : StateMachine
     private void HandleTakeDamage()
     {
         HandleHealthBar();
-        // SwitchState(new PlayerImpactState(this)); Non necessario
+        // SwitchState(new PlayerImpactState(this)); Non implementato
     }
 
     private void HandleDie()

@@ -6,13 +6,17 @@ public class PlayerAttackingState : PlayerBaseState
 {
     private float previousFrameTime;
 
+    private Attack currentAttack;
     Vector2 direction;
 
-    public PlayerAttackingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
+    public PlayerAttackingState(PlayerStateMachine stateMachine, int attackId) : base(stateMachine)
+    {
+        currentAttack = stateMachine.Attacks[attackId];
+    }
 
     public override void Enter()
     {
-        stateMachine.Animator.CrossFadeInFixedTime("Attack", 0.1f);
+        stateMachine.Animator.CrossFadeInFixedTime(currentAttack.AnimationName, currentAttack.TransitionDuration);
     }
 
     public override void Exit() { }
@@ -28,7 +32,10 @@ public class PlayerAttackingState : PlayerBaseState
 
         if (normalizedTime >= previousFrameTime && normalizedTime < 1f)
         {
-            //Debug.Log("Try Combo");
+            if (stateMachine.InputManager.IsAttacking)
+            {
+                TryCombo(normalizedTime);
+            }
         }
         else
         {
@@ -36,5 +43,14 @@ public class PlayerAttackingState : PlayerBaseState
         }
 
         previousFrameTime = normalizedTime;
+    }
+
+    void TryCombo(float normalizedTime)
+    {
+        if(currentAttack.ComboStateIndex == -1) { return; }
+
+        if(normalizedTime < currentAttack.ComboAttackTime) { return; }
+
+        stateMachine.SwitchState(new PlayerAttackingState(stateMachine, currentAttack.ComboStateIndex));
     }
 }
