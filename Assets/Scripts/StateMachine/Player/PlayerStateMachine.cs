@@ -19,7 +19,6 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public int AttackDamage { get; private set; }
     [field: SerializeField] public Attack[] Attacks { get; private set; }
 
-
     [field: SerializeField, Header("Skills Settings")] public Transform SkillPoint { get; private set; }
     [field: SerializeField] public Skill[] Skills { get; private set; }
 

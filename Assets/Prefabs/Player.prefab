@@ -314,11 +314,11 @@ MonoBehaviour:
     <ComboAttackTime>k__BackingField: 0
   <SkillPoint>k__BackingField: {fileID: 231542155}
   <Skills>k__BackingField:
-  - <AnimationName>k__BackingField: Skill1
+  - <AnimationName>k__BackingField: FireIncendary
     <TransitionDuration>k__BackingField: 0.1
     <Prefab>k__BackingField: {fileID: 7791099561216970531, guid: f1fb785acdc154ac98ccc43421e1250d, type: 3}
     <SpellCastTime>k__BackingField: 1.3
-  - <AnimationName>k__BackingField: Skill2
+  - <AnimationName>k__BackingField: FireMeteors
     <TransitionDuration>k__BackingField: 0.1
     <Prefab>k__BackingField: {fileID: 8119918092673389170, guid: 8932bd148505b43618c5489c60f68c29, type: 3}
     <SpellCastTime>k__BackingField: 1
