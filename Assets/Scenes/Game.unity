@@ -696,7 +696,7 @@ MonoBehaviour:
   - {fileID: 6766540644830107767, guid: 491a10aa5c7d143eabc1ae9f509e0809, type: 3}
   - {fileID: 1503687048731904521, guid: f02ed56667da44563baacfc39d47724a, type: 3}
   nEnemiesToSpawn: 1
-  spawnDelay: 2
+  spawnDelay: 1
   remainingSpawnTime: 0
   Player: {fileID: 672157822}
 --- !u!4 &672157822 stripped
@@ -827,6 +827,7 @@ MonoBehaviour:
   KillCountText: {fileID: 821421071}
   GameOverPanel: {fileID: 325808985}
   TutorialPanel: {fileID: 972851709}
+  MobileInputs: {fileID: 941266047}
 --- !u!1 &736503878
 GameObject:
   m_ObjectHideFlags: 0

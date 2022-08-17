@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI KillCountText;
     public GameObject GameOverPanel;
     public GameObject TutorialPanel;
+    public GameObject MobileInputs;
 
     private void Start()
     {
@@ -15,6 +16,7 @@ public class UIManager : MonoBehaviour
         GameOverPanel.SetActive(false);
 
         #if !PLATFORM_ANDROID
+        MobileInputs.SetActive(false);
         TutorialPanel.SetActive(true);
         GameManager.Instance.IsPause = true;
         #endif
@@ -35,4 +37,5 @@ public class UIManager : MonoBehaviour
         TutorialPanel.SetActive(false);
         GameManager.Instance.IsPause = false;
     }
+
 }
