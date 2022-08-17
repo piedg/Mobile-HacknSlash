@@ -14,6 +14,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        if(GameManager.Instance.Player.IsDead) { return; }
+
         remainingSpawnTime -= Time.deltaTime;
 
         if (remainingSpawnTime <= 0f)
