@@ -301,7 +301,7 @@ MonoBehaviour:
   <MovementSpeed>k__BackingField: 5
   <HealthBar>k__BackingField: {fileID: 8662399343710186722}
   <AttackPoint>k__BackingField: {fileID: 4625569651648202800}
-  <AttackRange>k__BackingField: 1.5
+  <AttackRange>k__BackingField: 1
   <AttackDamage>k__BackingField: 50
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack
