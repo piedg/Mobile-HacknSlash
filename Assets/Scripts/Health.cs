@@ -42,7 +42,7 @@ public class Health : MonoBehaviour
         {
             if(CompareTag("Enemy"))
             {
-                GameManager.KillCount++;
+                GameManager.Instance.KillCount++;
             }
 
             OnDie?.Invoke();

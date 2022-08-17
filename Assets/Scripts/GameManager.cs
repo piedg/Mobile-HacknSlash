@@ -2,19 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSingleton<GameManager>
 {
-    public static int KillCount;
-    public TextMeshProUGUI KillCountText;
+    public int KillCount;
 
-    private void Start()
+    const string GameScene = "Game";
+
+    public void StartGame()
     {
-        KillCountText.text = "Kills: 0";
+        SceneManager.LoadScene(GameScene);
     }
 
-    private void Update()
+    public void ExitGame()
     {
-        KillCountText.text = "Kills: " + KillCount.ToString();
+        Application.Quit();
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(GameScene);
     }
 }
