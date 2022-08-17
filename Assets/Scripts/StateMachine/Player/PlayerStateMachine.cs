@@ -22,8 +22,6 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField, Header("Skills Settings")] public Transform SkillPoint { get; private set; }
     [field: SerializeField] public Skill[] Skills { get; private set; }
 
-    [field: SerializeField] public int KillCount { get; private set; }
-
     private void Start()
     {
         SwitchState(new PlayerMovementState(this));
