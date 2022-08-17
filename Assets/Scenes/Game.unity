@@ -344,10 +344,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b699e238f4a2143a1bdc7ee247980116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnDelay: 5
   Enemies:
   - {fileID: 6766540644830107767, guid: 491a10aa5c7d143eabc1ae9f509e0809, type: 3}
   - {fileID: 1503687048731904521, guid: f02ed56667da44563baacfc39d47724a, type: 3}
+  nEnemiesToSpawn: 1
+  spawnDelay: 2
+  remainingSpawnTime: 0
+  Player: {fileID: 672157822}
 --- !u!4 &672157822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4625569651388304976, guid: bb78be13e5ac54f21bfde770687b7f48, type: 3}
