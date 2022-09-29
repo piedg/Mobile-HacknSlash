@@ -12,6 +12,11 @@ public class GameManager : MonoSingleton<GameManager>
     const string GameScene = "Game";
     const string MainMenuScene = "MainMenu";
 
+    private void Start()
+    {
+        IsPause = true;
+    }
+
     private void Update()
     {
         if (IsPause)

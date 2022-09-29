@@ -26,4 +26,9 @@ public abstract class State
             return 0f;
         }
     }
+
+    protected bool IsPlayingAnimation(Animator animator)
+    {
+        return animator.IsInTransition(0) || animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f;
+    }
 }

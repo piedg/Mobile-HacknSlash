@@ -15,8 +15,9 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField, Header("Health Settings")] public Image HealthBar { get; private set; }
 
     [field: SerializeField, Header("Attacks Settings")] public Transform AttackPoint { get; private set; }
-    [field: SerializeField] public float AttackRange { get; private set; }
+    [field: SerializeField] public float AttackSpeed { get; private set; }
     [field: SerializeField] public int AttackDamage { get; private set; }
+    [field: SerializeField] public float AttackRange { get; private set; }
     [field: SerializeField] public Attack[] Attacks { get; private set; }
 
     [field: SerializeField, Header("Skills Settings")] public Transform SkillPoint { get; private set; }

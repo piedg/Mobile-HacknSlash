@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAttackingState : PlayerBaseState
 {
+    private readonly int AttackSpeedHash = Animator.StringToHash("AttackSpeed");
+
     private float previousFrameTime;
 
     private Attack currentAttack;
@@ -16,6 +18,8 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.Animator.SetFloat(AttackSpeedHash, stateMachine.AttackSpeed);
+
         stateMachine.Animator.CrossFadeInFixedTime(currentAttack.AnimationName, currentAttack.TransitionDuration);
     }
 
@@ -23,12 +27,14 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
+
         direction = stateMachine.InputManager.MovementValue;
 
         FlipSprite(direction.x);
         Move(direction, 0f);
 
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
+        
 
         if (normalizedTime >= previousFrameTime && normalizedTime < 1f)
         {

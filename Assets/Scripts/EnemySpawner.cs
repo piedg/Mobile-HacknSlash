@@ -4,43 +4,39 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] List<GameObject> Enemies = new List<GameObject>();
+    [SerializeField] List<ObjectPool> EnemyPools = new List<ObjectPool>();
     [SerializeField] int nEnemiesToSpawn;
     [SerializeField] float spawnDelay;
     [field: SerializeField] public float remainingSpawnTime;
 
     [SerializeField] Transform Player;
-    float Offset = 10f;
+    float Offset = 25f;
 
     private void Update()
     {
         if(GameManager.Instance.Player.IsDead) { return; }
+        if(GameManager.Instance.IsPause) { return; }
 
         remainingSpawnTime -= Time.deltaTime;
 
         if (remainingSpawnTime <= 0f)
         {
-            SpawnEnemy();
+            InstantiateEnemy(GetRandomEnemyType(), Player.position, Offset);
         }
     }
 
-    void SpawnEnemy()
+    GameObject GetRandomEnemyType()
     {
-        for (int i = 0; i < nEnemiesToSpawn; i++)
-        {
-            Instantiate(Enemies[Random.Range(0, Enemies.Count)], new Vector2(
-                Random.Range(
-                    -(Player.position.x + Offset),
-                    Player.position.x + Offset
-                    ),
-                Random.Range(
-                    -(Player.position.y + Offset),
-                    Player.position.y + Offset
-                    )
-                ),
-                Quaternion.identity);
-        }
+        return EnemyPools[Random.Range(0, EnemyPools.Count)].GetObjectFromPool();
+    }
 
+    void InstantiateEnemy(GameObject enemy, Vector3 center, float range)
+    {
+        float randomX = Random.Range(center.x - range, center.x + range);
+        float randomY = Random.Range(center.y - range, center.y + range);
+
+        enemy.transform.SetPositionAndRotation(new Vector3(randomX, randomY), Quaternion.identity);
+        enemy.SetActive(true);
         remainingSpawnTime = spawnDelay;
     }
 }

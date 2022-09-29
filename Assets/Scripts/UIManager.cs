@@ -15,10 +15,11 @@ public class UIManager : MonoBehaviour
         KillCountText.text = "Kills: 0";
         GameOverPanel.SetActive(false);
 
+        GameManager.Instance.IsPause = true;
+
         #if !PLATFORM_ANDROID
         MobileInputs.SetActive(false);
         TutorialPanel.SetActive(true);
-        GameManager.Instance.IsPause = true;
         #endif
     }
 
