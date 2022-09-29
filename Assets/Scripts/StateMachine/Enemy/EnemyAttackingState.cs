@@ -20,7 +20,6 @@ public class EnemyAttackingState : EnemyBaseState
         {
             stateMachine.SwitchState(new EnemyChasingState(stateMachine));
         }
-
     }
 
     public override void Exit()
@@ -28,7 +27,4 @@ public class EnemyAttackingState : EnemyBaseState
         stateMachine.Rigidbody.isKinematic = false;
     }
 
-
-
- 
 }

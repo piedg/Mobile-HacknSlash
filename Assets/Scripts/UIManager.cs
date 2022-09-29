@@ -6,6 +6,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI KillCountText;
+    public TextMeshProUGUI TutorialText;
     public GameObject GameOverPanel;
     public GameObject TutorialPanel;
     public GameObject MobileInputs;
@@ -16,11 +17,14 @@ public class UIManager : MonoBehaviour
         GameOverPanel.SetActive(false);
 
         GameManager.Instance.IsPause = true;
-
-        #if !PLATFORM_ANDROID
-        MobileInputs.SetActive(false);
         TutorialPanel.SetActive(true);
-        #endif
+        TutorialText.text = "Use the stick for moving and the buttons for attacking!";
+
+
+#if !PLATFORM_ANDROID
+        MobileInputs.SetActive(false);
+        TutorialText.text = "Use \"WASD\" for move <br> \"Space\" for Attack <br> \"1 - 2\" for the Abilities";
+#endif
     }
 
     private void Update()

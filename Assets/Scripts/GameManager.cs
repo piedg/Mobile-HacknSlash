@@ -14,7 +14,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Start()
     {
-        IsPause = true;
     }
 
     private void Update()

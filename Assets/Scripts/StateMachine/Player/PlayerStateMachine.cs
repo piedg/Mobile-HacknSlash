@@ -51,7 +51,7 @@ public class PlayerStateMachine : StateMachine
        SwitchState(new PlayerDeadState(this));
     }
 
-    void HandleHealthBar() => HealthBar.fillAmount = (float)Health.GetHealth() / (float)Health.maxHealth;
+    void HandleHealthBar() => HealthBar.fillAmount = (float)Health.GetHealth() / (float)Health.MaxHealth;
 
     // Animation Events
 

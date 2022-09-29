@@ -59,4 +59,6 @@ public class PlayerMovementState : PlayerBaseState
             stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
         }
     }
+
+
 }

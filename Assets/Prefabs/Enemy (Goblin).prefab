@@ -193,9 +193,9 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 6766540644830107754}
   <Rigidbody>k__BackingField: {fileID: 6766540644830107752}
   <Health>k__BackingField: {fileID: 265686421495826910}
-  <MovementSpeed>k__BackingField: 6
+  <MovementSpeed>k__BackingField: 5
   <PlayerChasingRange>k__BackingField: 100
-  <AttackRange>k__BackingField: 1
+  <AttackRange>k__BackingField: 1.5
   <AttackDamage>k__BackingField: 1
   <AttackPoint>k__BackingField: {fileID: 4812798411867739485}
 --- !u!114 &265686421495826910
@@ -210,4 +210,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8582e07abb28459ca86770e31f93db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  MaxHealth: 100

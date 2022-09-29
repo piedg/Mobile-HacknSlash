@@ -7,10 +7,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] List<ObjectPool> EnemyPools = new List<ObjectPool>();
     [SerializeField] int nEnemiesToSpawn;
     [SerializeField] float spawnDelay;
-    [field: SerializeField] public float remainingSpawnTime;
 
     [SerializeField] Transform Player;
-    float Offset = 25f;
+    float remainingSpawnTime;
+    float Offset = 50f;
 
     private void Update()
     {
@@ -21,11 +21,11 @@ public class EnemySpawner : MonoBehaviour
 
         if (remainingSpawnTime <= 0f)
         {
-            InstantiateEnemy(GetRandomEnemyType(), Player.position, Offset);
+            InstantiateEnemy(GetRandomEnemy(), Player.position, Offset);
         }
     }
 
-    GameObject GetRandomEnemyType()
+    GameObject GetRandomEnemy()
     {
         return EnemyPools[Random.Range(0, EnemyPools.Count)].GetObjectFromPool();
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyHurtingState : EnemyBaseState
 {
     private readonly int ImpactHash = Animator.StringToHash("Hurt");
@@ -28,4 +29,6 @@ public class EnemyHurtingState : EnemyBaseState
     }
 
     public override void Exit() { }
+
+  
 }

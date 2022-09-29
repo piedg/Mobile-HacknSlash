@@ -5,7 +5,7 @@ using System;
 
 public class Health : MonoBehaviour
 {
-    [field: SerializeField] public int maxHealth = 100;
+    [field: SerializeField] public int MaxHealth = 100;
 
     private int health;
     private bool isInvulnerable;
@@ -17,7 +17,12 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        health = maxHealth;
+        SetMaxHealth();
+    }
+
+    public void SetMaxHealth()
+    {
+        health = MaxHealth;
     }
 
     public int GetHealth()
@@ -40,11 +45,6 @@ public class Health : MonoBehaviour
 
         if (IsDead)
         {
-            if(CompareTag("Enemy"))
-            {
-                GameManager.Instance.KillCount++;
-            }
-
             OnDie?.Invoke();
             return;
         }

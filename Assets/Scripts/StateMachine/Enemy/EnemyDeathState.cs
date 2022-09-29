@@ -9,6 +9,7 @@ public class EnemyDeathState : EnemyBaseState
     public EnemyDeathState(EnemyStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter() {
+        GameManager.Instance.KillCount++;
         stateMachine.GetComponent<CapsuleCollider2D>().enabled = false;
         stateMachine.Animator.CrossFadeInFixedTime(DeadHash, 0.1f);
     }
@@ -25,8 +26,9 @@ public class EnemyDeathState : EnemyBaseState
     IEnumerator DisableCorotuine()
     {
         yield return new WaitForSeconds(2f);
-        stateMachine.gameObject.SetActive(false);
-        stateMachine.GetComponent<CapsuleCollider2D>().enabled = true;
         stateMachine.SwitchState(new EnemyChasingState(stateMachine));
+        stateMachine.GetComponent<CapsuleCollider2D>().enabled = true;
+        stateMachine.gameObject.SetActive(false);
+        stateMachine.GetComponent<Health>().SetMaxHealth();
     }
 }

@@ -16,6 +16,7 @@ public class EnemyChasingState : EnemyBaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, CrossFadeduration);
     }
+    
 
     public override void Tick(float deltaTime)
     {
@@ -25,13 +26,14 @@ public class EnemyChasingState : EnemyBaseState
             stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
             return;
         }
-            if (IsInAttackRange())
+        if (IsInAttackRange())
         {
             stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
             return;
         }
 
         MoveToPlayer(deltaTime);
+
         FaceToPlayer();
 
         stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
@@ -42,19 +44,20 @@ public class EnemyChasingState : EnemyBaseState
     private void MoveToPlayer(float deltaTime)
     {
         Vector2 direction = stateMachine.Player.transform.position - stateMachine.transform.position;
-        direction.Normalize();
 
-        stateMachine.Rigidbody.MovePosition((Vector2)stateMachine.transform.position + (direction * stateMachine.MovementSpeed * deltaTime));
+        direction.Normalize();
+        stateMachine.transform.Translate(direction * stateMachine.MovementSpeed * deltaTime);
     }
 
     private bool IsInAttackRange()
     {
         if (stateMachine.Player.GetComponent<Health>().IsDead) { return false; }
 
-        stateMachine.Rigidbody.isKinematic = true;
+        //stateMachine.Rigidbody.isKinematic = true;
         float playerDistanceSqr = (stateMachine.Player.transform.position - stateMachine.transform.position).sqrMagnitude;
 
         return playerDistanceSqr <= stateMachine.AttackRange * stateMachine.AttackRange;
     }
 
+  
 }
